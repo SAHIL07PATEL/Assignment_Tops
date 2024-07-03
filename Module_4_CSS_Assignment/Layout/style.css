@@ -1,0 +1,42 @@
+.first-table{
+    width: 60rem;
+    background: rgba(0, 0, 0, 0.2);
+    margin: auto;
+    display: flex;
+
+}
+.box{
+    width: 400px;
+    height: 270px;
+    background: white;
+    margin: 20px;
+}
+.black-box{
+    height: 150px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    line-height: 150px;
+}
+.box p{
+    margin: 15px 0 0 10px;
+}
+.box ul{
+    list-style-type: none;
+    display: flex;
+    padding-left: 15px;
+    box-sizing: border-box;
+   
+}
+.box ul li{
+    height: 25px;
+    width: 45px;
+    text-align: center;
+    border: 2px solid black;
+    line-height: 25px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
