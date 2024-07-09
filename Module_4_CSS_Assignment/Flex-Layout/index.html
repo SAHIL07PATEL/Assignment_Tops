@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 100px 103px 0px 103px;
+            gap: 40px;
+        }
+        .first-article{
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            background-color: rgb(0, 255, 238);
+            padding: 10px;
+            width: 50%;
+            height: 350px;
+        }
+        .second-article{
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            background-color: rgb(0, 255, 238);
+            padding: 10px;
+            width: 50%;
+            height: 350px;
+        }
+        .third-article{
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            background-color: rgb(0, 255, 238);
+            padding: 10px;
+            width: 50%;
+            height: 350px;
+        }
+
+ 
+        .buttons .first button{
+            width: 90px;
+            height: 40px;
+        }
+ 
+        .buttons .btn{
+            margin-top: 10px;
+            width: 100%;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="first-article">
+            <h1>First Article</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet consectetur adipi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet consectetur adipi.</p>
+        </div>
+        <div class="second-article">
+            <h1>Second Article</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet consectetur adipi.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet consectetur adipi.</p>        
+        </div>
+        <div class="third-article">
+            <div class="buttons">
+                <div class="first">
+                    <button>Smile</button>
+                    <button>Laugh</button>
+                    <button>Wink</button>
+                    <button>Shrug</button>
+                </div>
+                <button class=btn>Blush</button>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt et non eos quam totam minus dolores reprehenderit libero ut, nihil doloribus, maxime quas!  nihil doloribus, maxime quas!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt et non eos quam totam minus dolores reprehenderit libero ut, nihil doloribus, maxime quas!  nihil doloribus, maxime quas!</p>
+        </div>
+    </div>
+</body>
+</html>
