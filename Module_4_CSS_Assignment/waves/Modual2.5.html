@@ -25,26 +25,41 @@
             text-align: center;
             padding: 10%;
         }
+        .wave1{
+            position: absolute;
+            bottom: 60px;
+            right: -113px;
+        }
+        .wave{
+            position: relative;
+        }
 
         .wave img {
-            /* border: 3px solid red; */
-            /* width: 80px; */
-            /* height: 80px; */
             border-radius: 50%;
             position: absolute;
+        }
+
+        .wave svg {
+            margin-top: 25px;
         }
 
        
         .abc {
             position: absolute;
-            color: aliceblue;
+            color: rgb(252, 95, 95);
             bottom: 10%;
             left: 25%;
+        }
+        .ui{
+            font-size: 17px;
+            text-align: center;
+            margin-left: 35px;
+            color: rgb(214, 188, 188); 
         }
         .img1{
             border: 3px solid red;
             left: 150px;
-            bottom: 190px;
+            bottom: 170px;
             height: 50px;
             width: 50px;
         }
@@ -57,7 +72,7 @@
             border-radius: 50%;
             position: absolute;
             left: 400px;
-            bottom: 230px;
+            bottom: 210px;
             z-index: 1;
 
         }
@@ -66,24 +81,35 @@
             width: 50px;
             border: 3px solid red;
             left: 650px;
-            bottom: 230px;
+            bottom: 210px;
         }
         .img4{
             height: 50px;
             width: 50px;
             border: 3px solid red;
             right: 300px;
-            bottom: 260px;
+            bottom: 240px;
         }
         .img5{
             height: 50px;
             width: 50px;
             border: 3px solid red;
             right: 100px;
-            bottom: 310px;
+            bottom: 290px;
         }
         .ss{
             border-bottom: 10px solid red;
+        }
+        .line{
+            content: "";
+            border: 1px solid rgb(149, 139, 139);
+            position: absolute;
+            left: 437px;
+            top: 170px;
+            height: 80px;
+            width: 2px;
+            background-color: white;
+            z-index: 10;
         }
         
     </style>
@@ -98,16 +124,16 @@
         <div class="wave">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"  >
                     <path fill="#ff5500" fill-opacity="0.1" 
-                        d="M0,192L48,176C96,160,192,128,288,106.7C384,85,480,75,576,85.3C672,96,768,128,864,128C960,128,1056,96,1152,69.3C1248,43,1344,21,1392,10.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" >
+                        d="M0,192L48,176C96,160,192,129,288,106.7C384,85,480,75,576,85.3C672,96,768,128,864,128C960,128,1056,96,1152,69.3C1248,43,1344,21,1392,10.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" >
                     </path>
                 </svg>
             <img src="./i1.png" alt="" class="img1">
-            <!-- <img src="../IMAGE/queen1.JPG" alt="" class="img2"> -->
             <div class="img2"></div>
             <img src="./i3.png" alt="" class="img3">
             <img src="./i4.png" alt="" class="img4">
             <img src="./i5.png" alt="" class="img5">
-            <h1 class="abc">Web Designer</h1>
+            <div class="line"></div>
+            <h1 class="abc">Web Designer <br><span class="ui">UI,UX Desginer</span></h1>
 
         </div>
     </div>
