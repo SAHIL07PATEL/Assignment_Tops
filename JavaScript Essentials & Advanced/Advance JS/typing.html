@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debounce Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            font-size: 18px;
+            padding: 5px;
+            width: 300px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Delay function result using debouncing</h3>
+    <input type="text" id="debounceInput" placeholder="Type something...">
+    <p>You typed: <span id="output"></span></p>
+
+    <script>
+        function debounce(func, delay) {
+            let debounceTimer;
+            return function() {
+                const context = this;
+                const args = arguments;
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => func.apply(context, args), delay);
+            }
+        }
+
+        const inputElement = document.getElementById('debounceInput');
+        const outputElement = document.getElementById('output');
+
+        inputElement.addEventListener('input', debounce(function() {
+            outputElement.textContent = inputElement.value;
+        }, 500)); // 500ms delay
+    </script>
+</body>
+</html>
