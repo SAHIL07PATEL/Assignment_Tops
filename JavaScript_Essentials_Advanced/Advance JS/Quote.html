@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote of the Day</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #3b82f6;
+            margin: 0;
+        }
+
+        .quote-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        #quote {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        #author {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button {
+            background-color: #3b82f6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #2563eb;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons button {
+            background-color: #fff;
+            color: #3b82f6;
+            border: 1px solid #3b82f6;
+            border-radius: 50%;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .social-icons button:hover {
+            background-color: #3b82f6;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="quote-container">
+        <h1>Quote of the Day</h1>
+        <p id="quote">"Never give up because you never know if the next try is going to be the one that works."</p>
+        <p id="author">— Mary Kay Ash</p>
+        <div class="buttons">
+            <button id="new-quote">New Quote</button>
+            <div class="social-icons">
+                <button id="speak-quote"><i class="fas fa-volume-up"></i></button>
+                <button id="copy-quote"><i class="fas fa-copy"></i></button>
+                <button id="tweet-quote"><i class="fab fa-twitter"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        // script.js
+const quotes = [
+    {
+        quote: "Never give up because you never know if the next try is going to be the one that works.",
+        author: "Mary Kay Ash"
+    },
+    {
+        quote: "The best way to predict the future is to create it.",
+        author: "Peter Drucker"
+    },
+    {
+        quote: "Success usually comes to those who are too busy to be looking for it.",
+        author: "Henry David Thoreau"
+    },
+    // Add more quotes here...
+];
+
+const quoteText = document.getElementById('quote');
+const authorText = document.getElementById('author');
+const newQuoteBtn = document.getElementById('new-quote');
+const speakQuoteBtn = document.getElementById('speak-quote');
+const copyQuoteBtn = document.getElementById('copy-quote');
+const tweetQuoteBtn = document.getElementById('tweet-quote');
+
+newQuoteBtn.addEventListener('click', getNewQuote);
+speakQuoteBtn.addEventListener('click', speakQuote);
+copyQuoteBtn.addEventListener('click', copyQuote);
+tweetQuoteBtn.addEventListener('click', tweetQuote);
+
+function getNewQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    const quote = quotes[randomIndex];
+    quoteText.textContent = `"${quote.quote}"`;
+    authorText.textContent = `— ${quote.author}`;
+}
+
+function speakQuote() {
+    const utterance = new SpeechSynthesisUtterance(quoteText.textContent);
+    speechSynthesis.speak(utterance);
+}
+
+function copyQuote() {
+    const quoteToCopy = `${quoteText.textContent} ${authorText.textContent}`;
+    navigator.clipboard.writeText(quoteToCopy).then(() => {
+        alert('Quote copied to clipboard!');
+    });
+}
+
+function tweetQuote() {
+    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(quoteText.textContent + " " + authorText.textContent)}`;
+    window.open(tweetUrl, '_blank');
+}
+
+    </script>
+</body>
+</html>

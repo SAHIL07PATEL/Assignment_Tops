@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h3>Q51: Write a JavaScript program to get the current date. Expected Output : mm-dd-yyyy, mm/dd/yyyy or dd-mm-yyyy, dd/mm/yyyy? </h3>
+<p>
+    <script>
+        function formatDate(format) {
+            const now = new Date();
+          
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0'); 
+            const year = now.getFullYear();
+          
+            let formattedDate;
+          
+            switch (format) {
+                case 'mm-dd-yyyy':
+                    formattedDate = `${month}-${day}-${year}`;
+                    break;
+                case 'mm/dd/yyyy':
+                    formattedDate = `${month}/${day}/${year}`;
+                    break;
+                case 'dd-mm-yyyy':
+                    formattedDate = `${day}-${month}-${year}`;
+                    break;
+                case 'dd/mm/yyyy':
+                    formattedDate = `${day}/${month}/${year}`;
+                    break;
+                default:
+                    formattedDate = 'Invalid format';
+            }
+          
+            return formattedDate;
+        }
+        
+        console.log(formatDate('mm-dd-yyyy')); 
+        console.log(formatDate('mm/dd/yyyy')); 
+        console.log(formatDate('dd-mm-yyyy')); 
+        console.log(formatDate('dd/mm/yyyy'));
+    </script>
+</p>
+
+
+<h3>Q52: Use indexOf to determine the position of the first occurrence of 'a' in 30 Days Of JavaScript?</h3>
+<p>
+    <script>
+        const strForIndexOf = "30 Days Of JavaScript";
+        const firstOccurrencePosition = strForIndexOf.indexOf('a');
+        
+        console.log(firstOccurrencePosition); // Output: 12
+    </script>
+</p>
+
+
+<h3>Q53: Use lastIndexOf to determine the position of the last occurrence of 'a' in 30 Days Of JavaScript? </h3>
+<p>
+    <script>
+        const strForLastIndexOf = "30 Days Of JavaScript";
+        const lastOccurrencePosition = strForLastIndexOf.lastIndexOf('a');
+        
+        console.log(lastOccurrencePosition);
+    </script>
+</p>
+
+
+<h3>Q57: How many types of JS Events are there? How to use them?</h3>
+<p>
+    <script>
+        // Example usage of events (note: actual event handling would be within an HTML element)
+        document.addEventListener('click', function() {
+            console.log('Element clicked');
+        });
+    </script>
+</p>
+
+
+<h3>Q60: What is BOM vs DOM in JS?</h3>
+<p>
+    <h5>BOM</h5>
+    <p><script>
+        window.location.href = 'https://www.example.com';
+    </script></p>
+
+    <h5>DOM</h5>
+    <p><script>
+        document.getElementById('myElement').textContent = 'New Text';
+    </script></p>
+</p>
+
+
+<h3>Q61: Array vs Object differences in JS?</h3>
+<p>
+    <h5>Array</h5>
+    <p><script>
+        const fruitsArray = ['apple', 'banana', 'cherry'];
+        console.log(fruitsArray[1]);
+        fruitsArray.push('date');
+        console.log(fruitsArray);
+    </script></p>
+
+    <h5>Object</h5>
+    <p><script>
+        const personObject = {
+            firstName: 'John',
+            lastName: 'Doe',
+            age: 30
+        };
+        console.log(personObject.firstName);
+        personObject.age = 31;
+        console.log(personObject);
+    </script></p>
+</p>
+
+
+<h3>Q62: Split the string into an array using split() Method?</h3>
+<p>
+    <script>
+        const textToSplit = 'apple,banana,cherry';
+        const resultArray = textToSplit.split(',');
+        console.log(resultArray);
+    </script>
+</p>
+
+
+<h3>Q63: Check if the string contains a word 'Script' using includes() method?</h3>
+<p>
+    <script>
+        const textToCheck = 'JavaScript is a powerful language';
+        const containsScript = textToCheck.includes('Script');
+        console.log(containsScript);
+    </script>
+</p>
+
+
+<h3>Q64: Change all the string characters to lowercase letters using toLowerCase() Method.</h3>
+<p>
+    <script>
+        const originalStringLower = 'Hello World! THIS IS JavaScript.';
+        const lowerCaseString = originalStringLower.toLowerCase();
+        console.log(lowerCaseString);
+    </script>
+</p>
+
+
+<h3>Q65: What is the character at index 15 in '30 Days of JavaScript' string? Use charAt() method.</h3>
+<p>
+    <script>
+        const textForCharAt = '30 Days of JavaScript';
+        const characterAtIndex15 = textForCharAt.charAt(15);
+        console.log(characterAtIndex15);
+    </script>
+</p>
+
+</body>
+</html>

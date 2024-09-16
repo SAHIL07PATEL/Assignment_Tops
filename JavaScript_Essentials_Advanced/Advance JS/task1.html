@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+                
+        }
+        button{
+            background-color: red;
+            padding: 5px;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <table border="1px">
+        <tr>
+            <td>Product info</td>
+            <td>Quantity</td>
+            <td>Price(per unit)</td>
+            <td>Price(subtotal)</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <img src="../../HTML_CSS/Images/b1.jpg" alt="" height="50px"> <br>
+                Fortunata Window Hardware - Decorative Holdbacks - Mocha
+            </td>
+            <td><input type="number" id="num1"></td>
+            <td id="quantity1">29.99</td>
+            <td >$<span id="num11">29.99</span></td>
+            <td><button>Remove</button></td>
+        </tr>
+        <tr>
+            <td>
+                <img src="../../HTML_CSS/Images/b1.jpg" alt="" height="50px"> <br>
+                Fortunata Window Hardware - Decorative Holdbacks - Mocha
+            </td>
+            <td><input type="number" id="num2"></td>
+            <td id="quantity2">12.99</td>
+            <td>$<span  id="num12">12.99</span></td>
+            <td><button>Remove</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="calculateResult()">Calculate</button></td>
+            <td></td>
+            <td></td>
+            <td><p id="result"></p></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+        function calculateResult() {
+            Quantitycal1()
+            Quantitycal2()
+          let num1 = Number(document.getElementById('num11').innerHTML);
+          let num2 = Number(document.getElementById('num12').innerHTML);
+          let result = num1 + num2 ; // Adding the numbers
+          if(Quantitycal1() && Quantitycal2()){
+            document.getElementById('result').textContent = ` $${result}`;
+          }else{
+            document.getElementById('result').textContent = ` $${result}`
+          }
+        }
+        
+
+        function Quantitycal1() {
+            let inputval1 = Number(document.getElementById('num1').value);
+            let num1 = Number(document.getElementById('quantity1').innerHTML);
+            let result1 = inputval1 * num1 ;
+
+            document.getElementById('num11').textContent = result1
+        }
+        function Quantitycal2() {
+            let inputval2 = Number(document.getElementById('num2').value);
+            let num2 = Number(document.getElementById('quantity2').innerHTML);
+            let result2 = inputval2 * num2 ;
+
+            document.getElementById('num12').textContent = result2
+        }
+
+      </script>
+</body>
+</html>

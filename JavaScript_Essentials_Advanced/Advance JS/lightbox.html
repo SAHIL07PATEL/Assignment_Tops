@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Lightbox Gallery</title>
+    <style>
+        body {
+            
+            margin: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .gallery-container {
+            max-width: 90%;
+            margin: auto;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 30%;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            /* max-width: 80%;
+            max-height: 80%; */
+            width: 50%;
+            height: 70%;
+        }
+
+        .close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 10px;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev {
+            left: 10px;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <div class="gallery">
+            <img src="./images/a2.jpg" alt="Image 1">
+            <img src="./images/a1.jpg" alt="Image 2">
+            <img src="./images/a3.jpg" alt="Image 3">
+            <img src="./images/a4.jpg" alt="Image 4">
+            <img src="./images/a5.jpg" alt="Image 5">
+            <img src="./images/a3.jpg" alt="Image 6">
+        </div>
+    </div>
+
+    
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-image">
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+        <div id="caption"></div>
+    </div>
+
+
+
+    <script>
+        const gallery = document.querySelectorAll('.gallery img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-image');
+        const captionText = document.getElementById('caption');
+        let currentImageIndex;
+
+        gallery.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                lightbox.style.display = "block";
+                lightboxImg.src = img.src;
+                captionText.innerHTML = img.alt;
+                currentImageIndex = index;
+            });
+        });
+
+        document.querySelector('.close').addEventListener('click', () => {
+            lightbox.style.display = "none";
+        });
+
+        document.querySelector('.prev').addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex === 0) ? gallery.length - 1 : currentImageIndex - 1;
+            lightboxImg.src = gallery[currentImageIndex].src;
+            captionText.innerHTML = gallery[currentImageIndex].alt;
+        });
+
+        document.querySelector('.next').addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex === gallery.length - 1) ? 0 : currentImageIndex + 1;
+            lightboxImg.src = gallery[currentImageIndex].src;
+            captionText.innerHTML = gallery[currentImageIndex].alt;
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = "none";
+            }
+        });
+
+    </script>
+</body>
+</html>

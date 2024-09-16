@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exercises</title>
+</head>
+
+<body>
+    <h3>Q1: Print Statements with console.log()</h3>
+    <script>
+        console.log("The quote 'There is no exercise better for the heart than reaching down and lifting people up.' by John Holmes teaches us to help one another.");
+        console.log("Mother Teresa once said, \"If you can't feed a hundred people, then feed just one.\"");
+    </script>
+
+    <h3>Q2: Check and Convert typeof '10' to 10</h3>
+    <script>
+        let strVal = '10';
+        let numVal = 10;
+        if (typeof strVal !== typeof numVal) {
+            strVal = Number(strVal);
+        }
+        console.log(strVal === numVal); // true
+    </script>
+
+    <h3>Q3: Find the Area of a Triangle</h3>
+    <script>
+        function calculateTriangleArea(baseLength, heightLength) {
+            return (baseLength * heightLength) / 2;
+        }
+        console.log(calculateTriangleArea(5, 10)); // 25
+    </script>
+
+    <h3>Q4: Calculate Days Left Until Next Christmas</h3>
+    <script>
+        function calculateDaysUntilNextChristmas() {
+            const todayDate = new Date();
+            const currentYear = todayDate.getFullYear();
+            let nextChristmasDate = new Date(currentYear, 11, 25); // December 25
+
+            if (todayDate > nextChristmasDate) {
+                nextChristmasDate = new Date(currentYear + 1, 11, 25);
+            }
+
+            const timeDifference = nextChristmasDate - todayDate;
+            const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+            return daysDifference;
+        }
+        console.log(calculateDaysUntilNextChristmas());
+    </script>
+
+    <h3>Q5: What is a Conditional Statement?</h3>
+    <p>
+        Conditional statements are used to perform different actions based on different conditions. Examples include if, else if, else, switch, and ternary operators.
+    </p>
+
+    <h3>Q6: Find Circumference of a Square</h3>
+    <script>
+        function calculateCircumferenceSquare(sideLength) {
+            return 4 * sideLength;
+        }
+        console.log(calculateCircumferenceSquare(5)); // 20
+    </script>
+
+    <h3>Q7: Convert Years into Days and Days into Years</h3>
+    <script>
+        function convertYearsToDays(yearsValue) {
+            return yearsValue * 365;
+        }
+
+        const inputYears = 2;
+        const daysConvertedFromYears = convertYearsToDays(inputYears);
+        console.log(`${inputYears} years is approximately ${daysConvertedFromYears} days.`);
+
+        function convertDaysToYears(daysValue) {
+            return daysValue / 365;
+        }
+
+        const inputDays = 730;
+        const yearsConvertedFromDays = convertDaysToYears(inputDays);
+        console.log(`${inputDays} days is approximately ${yearsConvertedFromDays.toFixed(2)} years.`);
+    </script>
+
+    <h3>Q8: Convert Temperature from Fahrenheit to Celsius</h3>
+    <script>
+        function convertFahrenheitToCelsius(fahrenheitTemp) {
+            const absoluteZeroFahrenheit = -459.67;
+            if (fahrenheitTemp < absoluteZeroFahrenheit) {
+                return "Temperature below absolute zero is not possible.";
+            } else {
+                const celsiusTemp = (fahrenheitTemp - 32) * 5 / 9;
+                return `${fahrenheitTemp}°F is ${celsiusTemp.toFixed(2)}°C.`;
+            }
+        }
+
+        const currentFahrenheit = 98.6;
+        const convertedCelsius = convertFahrenheitToCelsius(currentFahrenheit);
+        console.log(convertedCelsius);
+
+        const invalidFahrenheit = -500;
+        const invalidCelsius = convertFahrenheitToCelsius(invalidFahrenheit);
+        console.log(invalidCelsius);
+    </script>
+
+    <h3>Q9: Get the Extension of a Filename</h3>
+    <script>
+        function extractFileExtension(filenameValue) {
+            const lastDotPos = filenameValue.lastIndexOf('.');
+            if (lastDotPos === -1) {
+                return "";
+            }
+            return filenameValue.substring(lastDotPos + 1).toLowerCase();
+        }
+
+        const fileNamesList = [
+            "document.txt",
+            "archive.tar.gz",
+            "image.jpeg",
+            "no_extension_file",
+            "README.MD"
+        ];
+
+        fileNamesList.forEach(fileName => {
+            console.log(`The extension of "${fileName}" is "${extractFileExtension(fileName)}".`);
+        });
+    </script>
+
+    <h3>Q10: What is the Result of the Expression (5 > 3 && 2 < 4)?</h3>
+    <p>
+        The result of the expression (5 > 3 && 2 < 4) is true.
+    </p>
+
+    <h3>Q11: What is the Result of the Expression (true && 1 && "hello")?</h3>
+    <p>
+        The result of the expression (true && 1 && "hello") is "hello".
+    </p>
+
+    <h3>Q12: What is the Result of the Expression true && false || false && true?</h3>
+    <p>
+        The result of the expression true && false || false && true is false.
+    </p>
+
+    <h3>Q13: Check if a Number is Positive, Negative, or Zero</h3>
+    <script>
+        function determineNumberType(inputNumber) {
+            if (inputNumber > 0) {
+                return "The number is positive.";
+            } else if (inputNumber < 0) {
+                return "The number is negative.";
+            } else {
+                return "The number is zero.";
+            }
+        }
+
+        const numberList = [10, -5, 0, 3, -2];
+        numberList.forEach(num => {
+            console.log(`Checking ${num}: ${determineNumberType(num)}`);
+        });
+    </script>
+
+    <h3>Q14: Check if a Character is a Vowel or Not</h3>
+    <script>
+        function checkIfVowel(character) {
+            const vowelChars = 'aeiou';
+            return vowelChars.includes(character.toLowerCase());
+        }
+
+        const charList = ['a', 'B', 'e', 'F', 'i', 'O', 'u', 'z', 'Y'];
+        charList.forEach(char => {
+            if (checkIfVowel(char)) {
+                console.log(`${char} is a vowel.`);
+            } else {
+                console.log(`${char} is not a vowel.`);
+            }
+        });
+    </script>
+
+    <h3>Q15: Check if a Number is Positive, Negative, or Zero</h3>
+    <script>
+        function identifyNumber(numValue) {
+            if (numValue > 0) {
+                console.log("The number is positive.");
+            } else if (numValue < 0) {
+                console.log("The number is negative.");
+            } else {
+                console.log("The number is zero.");
+            }
+        }
+
+        const numArray = [10, -5, 0, 3.14, -2.71];
+        numArray.forEach(num => identifyNumber(num));
+    </script>
+
+    <h3>Q16: Check if a Number is Even or Odd using Ternary Operator</h3>
+    <script>
+        function checkEvenOdd(numInput) {
+            const result = (numInput % 2 === 0) ? "The number is even." : "The number is odd.";
+            console.log(result);
+        }
+
+        const numberSet = [4, 7, 0, -2, 13];
+        numberSet.forEach(num => checkEvenOdd(num));
+    </script>
+
+    <h3>Q17: Find Maximum Number Among 3 Numbers using Ternary Operator</h3>
+    <script>
+        function findMaximum(aVal, bVal, cVal) {
+            const maxVal = (aVal > bVal)
+                ? (aVal > cVal ? aVal : cVal)
+                : (bVal > cVal ? bVal : cVal);
+            console.log(`The maximum number is ${maxVal}.`);
+        }
+
+        const numSets = [
+            [10, 20, 15],
+            [5, 3, 8],
+            [30, 30, 30],
+            [1, 2, 3]
+        ];
+
+        numSets.forEach(([a, b, c]) => findMaximum(a, b, c));
+    </script>
+
+    <h3>Q18: Find Minimum Number Among 3 Numbers using Ternary Operator</h3>
+    <script>
+        function findMinimum(aVal, bVal, cVal) {
+            const minVal = (aVal < bVal)
+                ? (aVal < cVal ? aVal : cVal)
+                : (bVal < cVal ? bVal : cVal);
+            console.log(`The minimum number is ${minVal}.`);
+        }
+
+        const numSetsMin = [
+            [10, 20, 15],
+            [5, 3, 8],
+            [30, 30, 30],
+            [1, 2, 3]
+        ];
+
+        numSetsMin.forEach(([a, b, c]) => findMinimum(a, b, c));
+    </script>
+
+
+<h3>Q19: Write to find the largest of three numbers in JS? </h3>
+<script>
+  function findLargestOfThree(num1, num2, num3) {
+    if (num1 >= num2 && num1 >= num3) {
+        return num1;
+    } else if (num2 >= num1 && num2 >= num3) {
+        return num2;
+    } else {
+        return num3;
+    }
+}
+
+// Example usage:
+const number1 = 10;
+const number2 = 20;
+const number3 = 15;
+
+const largestNumber = findLargestOfThree(number1, number2, number3);
+console.log(`The largest number is ${largestNumber}.`);
+
+</script>
+    
+
+
+<h3>Q:20(1) Monday to Sunday using switch case in JS? </h3>
+<script>
+  function getDayName(dayNumber) {
+    let dayName;
+
+    switch (dayNumber) {
+        case 1:
+            dayName = "Monday";
+            break;
+        case 2:
+            dayName = "Tuesday";
+            break;
+        case 3:
+            dayName = "Wednesday";
+            break;
+        case 4:
+            dayName = "Thursday";
+            break;
+        case 5:
+            dayName = "Friday";
+            break;
+        case 6:
+            dayName = "Saturday";
+            break;
+        case 7:
+            dayName = "Sunday";
+            break;
+        default:
+            dayName = "Invalid day number. Please enter a number between 1 and 7.";
+    }
+
+    return dayName;
+}
+
+// Example usage:
+const dayNumber = 3;
+const dayName = getDayName(dayNumber);
+console.log(`Day ${dayNumber} is ${dayName}.`);
+
+</script>
+
+<h3>Q:20(2)  Vowel or Consonant using switch case in JS?</h3>
+<script>
+  function checkCharacter(char) {
+    let result;
+    char = char.toLowerCase(); 
+
+    switch (char) {
+        case 'a':
+        case 'e':
+        case 'i':
+        case 'o':
+        case 'u':
+            result = `${char} is a vowel.`;
+            break;
+        default:
+            
+            if (char >= 'a' && char <= 'z') {
+                result = `${char} is a consonant.`;
+            } else {
+                result = `${char} is not a letter.`;
+            }
+    }
+
+    return result;
+    }
+
+
+    const characters = ['a', 'B', 'e', 'F', 'i', 'O', 'u', 'z', '1'];
+
+    characters.forEach(char => {
+        console.log(checkCharacter(char));
+    });
+
+</script>
+</body>
+
+</html>
